@@ -1,5 +1,3 @@
-particoes
-intercalacao
+ordena
 *.csv
-particoes/
-saida.csv
+parts/
