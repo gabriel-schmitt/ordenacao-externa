@@ -1,0 +1,5 @@
+particoes
+intercalacao
+*.csv
+particoes/
+saida.csv
