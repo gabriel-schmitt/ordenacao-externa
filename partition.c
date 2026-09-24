@@ -207,6 +207,15 @@ static int fase_particoes(
             return 1;
         }
 
+        // descarta a linha de cabecalho
+        char cabecalho[MAX_LINHA];
+        if (!fgets(cabecalho, sizeof cabecalho, f))
+        {
+            fprintf(stderr, "%s: vazio ou ilegivel\n", caminho);
+            fclose(f);
+            continue;
+        }
+
         int idx = indice_no_cabecalho(coluna);
         if (idx < 0)
         {
