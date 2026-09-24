@@ -7,8 +7,8 @@ Dois programas, um por etapa:
 
 ```
 make
-./particoes user_session 512 ./parts 2019-Oct.csv 2019-Nov.csv
-./merge user_session saida.csv ./parts/*.csv
+./partition user_session 512 ./parts 2019-Oct.csv 2019-Nov.csv
+./intercalate user_session saida.csv ./parts/*.csv
 ```
 
 `particoes` lê cada CSV em blocos do tamanho dado em MB, ordena cada bloco com

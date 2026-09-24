@@ -7,7 +7,7 @@
 #define MEGABYTES (1024.0 * 1024.0)
 
 // colunas fixas dos CSVs de origem (2019-Oct.csv / 2019-Nov.csv), na ordem
-static const char *COLUNAS[] = {
+const char *COLUNAS[] = {
     "event_time",
     "event_type",
     "product_id",
@@ -118,7 +118,7 @@ const char *campo(const char *linha, int indice, size_t *len)
 }
 
 // guarda no registro a chave ja pronta pra comparar
-static void extrai_chave(Registro *r, int indice, Tipo tipo)
+void extrai_chave(Registro *r, int indice, Tipo tipo)
 {
     size_t len = 0;
     const char *ini = campo(r->linha, indice, &len);

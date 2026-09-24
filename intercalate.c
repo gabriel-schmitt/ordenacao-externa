@@ -19,7 +19,7 @@ typedef struct
 
 // tira o \n (e o \r, se tiver) do fim da linha, um caractere de cada vez,
 // ate sobrar so o conteudo de verdade.
-static void remove_newline(char *linha, size_t *tamanho)
+void remove_newline(char *linha, size_t *tamanho)
 {
     while (1)
     {
@@ -36,7 +36,7 @@ static void remove_newline(char *linha, size_t *tamanho)
 
 // le a proxima linha dessa particao e ja extrai a chave de ordenacao.
 // devolve 1 se leu uma linha nova, ou 0 se a particao ja acabou (fim de arquivo).
-static int particao_avanca(Particao *particao, int indice_coluna, Tipo tipo)
+int particao_avanca(Particao *particao, int indice_coluna, Tipo tipo)
 {
     if (fgets(particao->linha, sizeof particao->linha, particao->arquivo) == NULL)
     {
@@ -66,7 +66,7 @@ static int particao_avanca(Particao *particao, int indice_coluna, Tipo tipo)
     return 1;
 }
 
-static void libera_particoes(Particao *particoes, int num_particoes)
+void libera_particoes(Particao *particoes, int num_particoes)
 {
     for (int i = 0; i < num_particoes; i++)
     {
@@ -78,7 +78,7 @@ static void libera_particoes(Particao *particoes, int num_particoes)
     free(particoes);
 }
 
-static int fase_merge(
+int fase_merge(
     const char *coluna,
     const char *caminho_saida,
     int num_caminho_particoes,

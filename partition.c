@@ -26,7 +26,7 @@ typedef struct
 
 
 // quebra o bloco em linhas e monta o array de registros
-static long long monta(Ctx *c, size_t fim)
+long long monta(Ctx *c, size_t fim)
 {
     size_t n = 0;
     char *p = c->buf, *e = c->buf + fim;
@@ -76,7 +76,7 @@ static long long monta(Ctx *c, size_t fim)
 }
 
 // escreve o array ja ordenado num arquivo de particao
-static int grava_particao(Ctx *c, size_t n)
+int grava_particao(Ctx *c, size_t n)
 {
     char caminho[1024];
     snprintf(caminho, sizeof caminho, "%s/p%04d.csv", c->dir, c->np);
@@ -110,7 +110,7 @@ static int grava_particao(Ctx *c, size_t n)
 }
 
 // le um arquivo em blocos e gera uma particao por bloco
-static int particiona(Ctx *c, FILE *f, const char *caminho)
+int particiona(Ctx *c, FILE *f, const char *caminho)
 {
     while (1)
     {
@@ -159,7 +159,7 @@ static int particiona(Ctx *c, FILE *f, const char *caminho)
 }
 
 // fase 1: dos CSVs de entrada pras particoes ordenadas
-static int fase_particoes(
+int fase_particoes(
     long tamanho_mb,
     const char *caminho_saida,
     const char *coluna,
