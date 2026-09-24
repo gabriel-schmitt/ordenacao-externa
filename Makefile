@@ -1,8 +1,13 @@
-CC = gcc
-CFLAGS = -Wall -Wextra -O2 -g
+CC=gcc
+CFLAGS=-Wall -Wextra -O2 -g -std=c99 -pedantic
+TARGETS=intercalate partition
 
-ordena: ordena.c
-	$(CC) $(CFLAGS) -o ordena ordena.c
+all: $(TARGETS)
+
+%: %.c
+	$(CC) $(CFLAGS) -o $@ $<
+
+.PHONY: clean
 
 clean:
-	rm -f ordena
+	rm $(TARGETS)
